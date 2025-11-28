@@ -84,14 +84,13 @@ h1 {
 }
 
 .cell.X {
-  color: rgb(200, 120, 255); /* svetlija ljubičasta */
+  color: rgb(200, 120, 255);
 }
 
 .cell.O {
-  color: rgb(255, 180, 180); /* pastelno roze */
+  color: rgb(255, 180, 180);
 }
 
-/* ANIMATION FOR MARKS */
 .cell {
   position: relative;
 }
