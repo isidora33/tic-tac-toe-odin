@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgb(127, 85, 177), rgb(155, 126, 189));
+  margin: 0;
+  padding: 50px 20px;
+  color: #333;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(244, 155, 171);
+  text-shadow: 2px 2px rgb(255, 225, 224);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 10px;
+  margin-bottom: 30px;
+  background: rgba(255, 225, 224, 0.5);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+  background-color: rgb(255, 225, 224);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgb(127, 85, 177);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  user-select: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+  transform: scale(1.1);
+  background-color: rgb(244, 155, 171);
+}
+
+#status {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: rgb(255, 225, 224);
+  text-shadow: 1px 1px rgb(127, 85, 177);
+}
+
+#reset {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, rgb(244, 155, 171), rgb(255, 225, 224));
+  color: rgb(127, 85, 177);
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#reset:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cell.X {
+  color: rgb(200, 120, 255); /* svetlija ljubičasta */
+}
+
+.cell.O {
+  color: rgb(255, 180, 180); /* pastelno roze */
+}
+
+/* ANIMATION FOR MARKS */
+.cell {
+  position: relative;
+}
+
+.cell.X::after,
+.cell.O::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  animation: mark-pop 0.3s forwards;
+}
+
+@keyframes mark-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
